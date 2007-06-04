@@ -4,7 +4,7 @@
 
 Summary: Simple general API for producing text-to-speech output
 Name: gnome-speech
-Version: 0.4.12
+Version: 0.4.13
 Release: %mkrel 1
 License: LGPL
 Group: Accessibility
