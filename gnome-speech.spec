@@ -1,5 +1,6 @@
 %define lib_major 7
-%define lib_name %mklibname gnomespeech %{lib_major}
+%define libname %mklibname gnomespeech %{lib_major}
+%define libnamedev %mklibname -d gnomespeech
 %define last_abi_break_version 0.3.2
 
 Summary: Simple general API for producing text-to-speech output
@@ -23,7 +24,7 @@ Requires: %name-driver = %version
 This is GNOME Speech.  It's purpose is to provide a
 simple general API for producing text-to-speech output.
 
-%package -n %{lib_name}
+%package -n %{libname}
 Summary:	 Simple general API for producing text-to-speech output
 Group:		%{group}
 
@@ -31,21 +32,22 @@ Provides:	lib%{name} = %{version}-%{release}
 Requires:   %{name} >= %{version}-%{release}
 
 
-%description -n %{lib_name}
+%description -n %{libname}
 This is GNOME Speech.  It's purpose is to provide a
 simple general API for producing text-to-speech output.
 
-%package -n %{lib_name}-devel
+%package -n %{libnamedev}
 Summary:	Static libraries, include files for gnome_speech
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	libgnomespeech-devel = %{version}-%{release}
-Requires:	%{lib_name} = %{version}-%{release}
+Requires:	%{libname} = %{version}-%{release}
 Requires:   libbonobo2_x-devel
 Conflicts:  lib%{name}-devel < %{last_abi_break_version}
+Obsoletes: %mklibname -d gnomespeech 7
 
-%description -n %{lib_name}-devel
+%description -n %{libnamedev}
 This is GNOME Speech.  It's purpose is to provide a
 simple general API for producing text-to-speech output.
 
@@ -92,9 +94,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/*.la
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -n %{lib_name} -p /sbin/ldconfig
+%post -n %{libname} -p /sbin/ldconfig
   
-%postun -n %{lib_name} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 
 %files
 %defattr(-,root,root,-)
@@ -113,11 +115,11 @@ rm -rf $RPM_BUILD_ROOT
 %_bindir/espeak-synthesis-driver
 %_libdir/bonobo/servers/GNOME_Speech_SynthesisDriver_Espeak.server
 
-%files -n %{lib_name}
+%files -n %{libname}
 %defattr(-,root,root,-)
 %{_libdir}/*.so.%{lib_major}*
 
-%files -n %{lib_name}-devel
+%files -n %{libnamedev}
 %defattr(-,root,root,-)
 %{_includedir}/*
 %{_libdir}/*.so
