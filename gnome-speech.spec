@@ -11,7 +11,6 @@ License: LGPL
 Group: Accessibility
 URL: http://developer.gnome.org/projects/gap/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libbonobo-activation-devel
 BuildRequires: libespeak-devel
 BuildRequires: autoconf2.5
