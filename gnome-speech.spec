@@ -5,7 +5,7 @@
 
 Summary: Simple general API for producing text-to-speech output
 Name: gnome-speech
-Version: 0.4.17
+Version: 0.4.18
 Release: %mkrel 1
 License: LGPL
 Group: Accessibility
@@ -16,6 +16,8 @@ BuildRequires: libbonobo-activation-devel
 BuildRequires: libespeak-devel
 BuildRequires: autoconf2.5
 BuildRequires: gnome-common
+BuildRequires: java-access-bridge
+BuildRequires: java-devel
 Obsoletes: gnome_speech
 Provides: gnome_speech = %{version}-%{release}
 Requires: %name-driver = %version
@@ -79,7 +81,7 @@ This is a backend for %name based on espeak.
 
 %build
 
-%configure2_5x
+%configure2_5x --with-jab-dir=%_datadir/java
 
 %make
 
@@ -90,6 +92,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # remove unpackaged files
 rm -f $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/*.la
+
+#gw I think this dir is more appropiate
+mv %buildroot%_datadir/jar %buildroot%_datadir/java
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -104,6 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/test-speech
 %{_datadir}/idl/*
 %{_libdir}/orbit-2.0/*.so
+%_datadir/java/gnome-speech.jar
 
 %files driver-festival
 %defattr(-,root,root,-)
