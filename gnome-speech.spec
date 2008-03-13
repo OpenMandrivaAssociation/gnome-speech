@@ -6,7 +6,7 @@
 Summary: Simple general API for producing text-to-speech output
 Name: gnome-speech
 Version: 0.4.18
-Release: %mkrel 1
+Release: %mkrel 2
 License: LGPL
 Group: Accessibility
 URL: http://developer.gnome.org/projects/gap/
@@ -69,6 +69,7 @@ This is a backend for %name based on festival.
 Summary: Backend for gnome-speech based on espeak
 Group: System/Libraries
 Provides: %name-driver = %version
+Requires: soundwrapper
 
 %description driver-espeak
 This is GNOME Speech.  It's purpose is to provide a
@@ -89,6 +90,15 @@ This is a backend for %name based on espeak.
 rm -rf $RPM_BUILD_ROOT
 
 %makeinstall_std
+
+# replace espeak driver with wrapper which calls soundwrapper if needed
+mv $RPM_BUILD_ROOT%{_bindir}/espeak-synthesis-driver $RPM_BUILD_ROOT%{_bindir}/espeak-synthesis-driver.bin 
+
+cat << EOF >  $RPM_BUILD_ROOT%{_bindir}/espeak-synthesis-driver 
+#!/bin/sh
+/usr/bin/soundwrapper /usr/bin/espeak-synthesis-driver.bin \$@
+EOF
+chmod 755 $RPM_BUILD_ROOT%{_bindir}/espeak-synthesis-driver 
 
 # remove unpackaged files
 rm -f $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/*.la
@@ -118,7 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files driver-espeak
 %defattr(-,root,root,-)
-%_bindir/espeak-synthesis-driver
+%_bindir/espeak-synthesis-driver*
 %_libdir/bonobo/servers/GNOME_Speech_SynthesisDriver_Espeak.server
 
 %files -n %{libname}
