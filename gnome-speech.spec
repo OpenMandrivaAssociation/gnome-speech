@@ -6,7 +6,7 @@
 Summary: Simple general API for producing text-to-speech output
 Name: gnome-speech
 Version: 0.4.18
-Release: %mkrel 2
+Release: %mkrel 3
 License: LGPL
 Group: Accessibility
 URL: http://developer.gnome.org/projects/gap/
@@ -28,7 +28,7 @@ simple general API for producing text-to-speech output.
 
 %package -n %{libname}
 Summary:	 Simple general API for producing text-to-speech output
-Group:		%{group}
+Group:		System/Libraries
 
 Provides:	lib%{name} = %{version}-%{release}
 Requires:   %{name} >= %{version}-%{release}
