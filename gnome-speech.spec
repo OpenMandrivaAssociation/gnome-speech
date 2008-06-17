@@ -5,7 +5,7 @@
 
 Summary: Simple general API for producing text-to-speech output
 Name: gnome-speech
-Version: 0.4.19
+Version: 0.4.20
 Release: %mkrel 1
 License: LGPL
 Group: Accessibility
@@ -82,7 +82,7 @@ This is a backend for %name based on espeak.
 
 %build
 
-%configure2_5x --with-jab-dir=%_datadir/java
+%configure2_5x --with-jab-dir=%_datadir/java --with-java-home=%_prefix/lib/jvm/java-1.6.0-openjdk-1.6.0.0/
 
 %make
 
