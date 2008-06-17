@@ -17,7 +17,7 @@ BuildRequires: libespeak-devel
 BuildRequires: autoconf2.5
 BuildRequires: gnome-common
 BuildRequires: java-access-bridge
-BuildRequires: java-devel
+BuildRequires: java-devel java-rpmbuild
 Obsoletes: gnome_speech
 Provides: gnome_speech = %{version}-%{release}
 Requires: %name-driver = %version
@@ -82,7 +82,7 @@ This is a backend for %name based on espeak.
 
 %build
 
-%configure2_5x --with-jab-dir=%_datadir/java --with-java-home=%_prefix/lib/jvm/java-1.6.0-openjdk-1.6.0.0/
+%configure2_5x --with-jab-dir=%_datadir/java --with-java-home=%java_home
 
 %make
 
