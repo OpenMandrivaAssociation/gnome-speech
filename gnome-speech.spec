@@ -5,9 +5,9 @@
 
 Summary: Simple general API for producing text-to-speech output
 Name: gnome-speech
-Version: 0.4.20
-Release: %mkrel 2
-License: LGPL
+Version: 0.4.21
+Release: %mkrel 1
+License: LGPLv2+
 Group: Accessibility
 URL: http://developer.gnome.org/projects/gap/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
