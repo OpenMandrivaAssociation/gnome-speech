@@ -3,10 +3,16 @@
 %define libnamedev %mklibname -d gnomespeech
 %define last_abi_break_version 0.3.2
 
+%ifarch %arm %mips
+%define build_java 0
+%else
+%define build_java 1
+%endif
+
 Summary: Simple general API for producing text-to-speech output
 Name: gnome-speech
 Version: 0.4.25
-Release: %mkrel 1
+Release: %mkrel 2
 License: LGPLv2+
 Group: Accessibility
 URL: http://developer.gnome.org/projects/gap/
@@ -16,8 +22,10 @@ BuildRequires: libbonobo-activation-devel
 BuildRequires: libespeak-devel
 BuildRequires: autoconf2.5
 BuildRequires: gnome-common
+%if %{build_java}
 BuildRequires: java-access-bridge
 BuildRequires: java-devel java-rpmbuild
+%endif
 Obsoletes: gnome_speech
 Provides: gnome_speech = %{version}-%{release}
 Requires: %name-driver = %version
@@ -82,7 +90,11 @@ This is a backend for %name based on espeak.
 
 %build
 
+%if %{build_java}
 %configure2_5x --with-jab-dir=%_datadir/java --with-java-home=%java_home
+%else
+%configure2_5x
+%endif
 
 %make
 
@@ -103,8 +115,10 @@ chmod 755 $RPM_BUILD_ROOT%{_bindir}/espeak-synthesis-driver
 # remove unpackaged files
 rm -f $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/*.la
 
+%if %{build_java}
 #gw I think this dir is more appropiate
 mv %buildroot%_datadir/jar %buildroot%_datadir/java
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -123,7 +137,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/test-speech
 %{_datadir}/idl/*
 %{_libdir}/orbit-2.0/*.so
+%if %{build_java}
 %_datadir/java/gnome-speech.jar
+%endif
 
 %files driver-festival
 %defattr(-,root,root,-)
