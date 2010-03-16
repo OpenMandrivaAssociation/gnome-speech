@@ -22,6 +22,7 @@ BuildRequires: libbonobo-activation-devel
 BuildRequires: libespeak-devel
 BuildRequires: autoconf2.5
 BuildRequires: gnome-common
+BuildRequires: popt-devel
 %if %{build_java}
 BuildRequires: java-access-bridge
 BuildRequires: java-devel java-rpmbuild
