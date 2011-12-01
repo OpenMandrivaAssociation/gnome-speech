@@ -100,21 +100,21 @@ This is a backend for %name based on espeak.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %makeinstall_std
 
 # replace espeak driver with wrapper which calls soundwrapper if needed
-mv $RPM_BUILD_ROOT%{_bindir}/espeak-synthesis-driver $RPM_BUILD_ROOT%{_bindir}/espeak-synthesis-driver.bin 
+mv %{buildroot}%{_bindir}/espeak-synthesis-driver %{buildroot}%{_bindir}/espeak-synthesis-driver.bin 
 
-cat << EOF >  $RPM_BUILD_ROOT%{_bindir}/espeak-synthesis-driver 
+cat << EOF >  %{buildroot}%{_bindir}/espeak-synthesis-driver 
 #!/bin/sh
 /usr/bin/soundwrapper /usr/bin/espeak-synthesis-driver.bin \$@
 EOF
-chmod 755 $RPM_BUILD_ROOT%{_bindir}/espeak-synthesis-driver 
+chmod 755 %{buildroot}%{_bindir}/espeak-synthesis-driver 
 
 # remove unpackaged files
-rm -f $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/*.la
+rm -f %{buildroot}%{_libdir}/orbit-2.0/*.la
 
 %if %{build_java}
 #gw I think this dir is more appropiate
@@ -122,7 +122,7 @@ mv %buildroot%_datadir/jar %buildroot%_datadir/java
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
