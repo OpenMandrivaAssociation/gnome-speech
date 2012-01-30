@@ -12,7 +12,7 @@
 Summary: Simple general API for producing text-to-speech output
 Name: gnome-speech
 Version: 0.4.25
-Release: %mkrel 5
+Release: %mkrel 6
 License: LGPLv2+
 Group: Accessibility
 URL: http://developer.gnome.org/projects/gap/
@@ -54,7 +54,6 @@ Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	libgnomespeech-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
-Requires:   libbonobo2_x-devel
 Conflicts:  lib%{name}-devel < %{last_abi_break_version}
 Obsoletes: %mklibname -d gnomespeech 7
 
