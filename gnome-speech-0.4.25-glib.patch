@@ -1,0 +1,305 @@
+diff -urN gnome-speech-0.4.25/drivers/dectalk/dectalkspeaker.c gnome-speech-0.4.25-patched/drivers/dectalk/dectalkspeaker.c
+--- gnome-speech-0.4.25/drivers/dectalk/dectalkspeaker.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/dectalk/dectalkspeaker.c	2012-09-08 02:23:12.417229028 +1100
+@@ -27,8 +27,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <dtk/ttsapi.h>
+ #include "dectalkspeaker.h"
+diff -urN gnome-speech-0.4.25/drivers/dectalk/dectalkspeaker.h gnome-speech-0.4.25-patched/drivers/dectalk/dectalkspeaker.h
+--- gnome-speech-0.4.25/drivers/dectalk/dectalkspeaker.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/dectalk/dectalkspeaker.h	2012-09-08 02:22:15.294229002 +1100
+@@ -30,7 +30,7 @@
+ #define __DECTALK_SPEAKER_H_
+ 
+ #include <bonobo/bonobo-object.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ 
+ #define DECTALK_SPEAKER_TYPE        (dectalk_speaker_get_type())
+diff -urN gnome-speech-0.4.25/drivers/dectalk/dectalksynthesisdriver.c gnome-speech-0.4.25-patched/drivers/dectalk/dectalksynthesisdriver.c
+--- gnome-speech-0.4.25/drivers/dectalk/dectalksynthesisdriver.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/dectalk/dectalksynthesisdriver.c	2012-09-08 02:22:15.298229002 +1100
+@@ -26,7 +26,7 @@
+ 
+ #include <string.h>
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include "dectalksynthesisdriver.h"
+ #include <dtk/ttsapi.h>
+diff -urN gnome-speech-0.4.25/drivers/dectalk/dectalksynthesisdriver.h gnome-speech-0.4.25-patched/drivers/dectalk/dectalksynthesisdriver.h
+--- gnome-speech-0.4.25/drivers/dectalk/dectalksynthesisdriver.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/dectalk/dectalksynthesisdriver.h	2012-09-08 02:22:15.294229002 +1100
+@@ -28,7 +28,7 @@
+ #ifndef __DECTALK_SYNTHESIS_DRIVER_H_
+ #define __DECTALK_SYNTHESIS_DRIVER_H_
+ 
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <bonobo/bonobo-object.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <dtk/ttsapi.h>
+diff -urN gnome-speech-0.4.25/drivers/eloquence/eloquencespeaker.c gnome-speech-0.4.25-patched/drivers/eloquence/eloquencespeaker.c
+--- gnome-speech-0.4.25/drivers/eloquence/eloquencespeaker.c	2009-02-09 02:14:55.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/eloquence/eloquencespeaker.c	2012-09-08 02:23:39.288229033 +1100
+@@ -25,8 +25,7 @@
+ 
+ #include <unistd.h>
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include "eloquencespeaker.h"
+  
+diff -urN gnome-speech-0.4.25/drivers/eloquence/eloquencespeaker.h gnome-speech-0.4.25-patched/drivers/eloquence/eloquencespeaker.h
+--- gnome-speech-0.4.25/drivers/eloquence/eloquencespeaker.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/eloquence/eloquencespeaker.h	2012-09-08 02:22:15.241229001 +1100
+@@ -34,7 +34,7 @@
+ #endif /* __cplusplus */
+ 
+ #include <bonobo/bonobo-object.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <eci.h>
+ #include <gnome-speech/gnome-speech.h>
+ 
+diff -urN gnome-speech-0.4.25/drivers/eloquence/eloquencesynthesisdriver.c gnome-speech-0.4.25-patched/drivers/eloquence/eloquencesynthesisdriver.c
+--- gnome-speech-0.4.25/drivers/eloquence/eloquencesynthesisdriver.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/eloquence/eloquencesynthesisdriver.c	2012-09-08 02:22:15.242229001 +1100
+@@ -24,7 +24,7 @@
+  */
+ 
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include "eloquencesynthesisdriver.h"
+ #include "eloquencespeaker.h"
+diff -urN gnome-speech-0.4.25/drivers/espeak/espeakspeaker.c gnome-speech-0.4.25-patched/drivers/espeak/espeakspeaker.c
+--- gnome-speech-0.4.25/drivers/espeak/espeakspeaker.c	2009-02-16 03:24:06.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/espeak/espeakspeaker.c	2012-09-08 02:22:15.303229001 +1100
+@@ -26,7 +26,7 @@
+ #include <unistd.h>
+ #include <string.h>
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <speak_lib.h>
+ #include "espeaksynthesisdriver.h"
+diff -urN gnome-speech-0.4.25/drivers/espeak/espeakspeaker.h gnome-speech-0.4.25-patched/drivers/espeak/espeakspeaker.h
+--- gnome-speech-0.4.25/drivers/espeak/espeakspeaker.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/espeak/espeakspeaker.h	2012-09-08 02:22:15.303229001 +1100
+@@ -34,7 +34,7 @@
+ #endif /* __cplusplus */
+ 
+ #include <bonobo/bonobo-object.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <speak_lib.h>
+ #include <gnome-speech/gnome-speech.h>
+ 
+diff -urN gnome-speech-0.4.25/drivers/espeak/espeaksynthesisdriver.c gnome-speech-0.4.25-patched/drivers/espeak/espeaksynthesisdriver.c
+--- gnome-speech-0.4.25/drivers/espeak/espeaksynthesisdriver.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/espeak/espeaksynthesisdriver.c	2012-09-08 02:22:15.301229003 +1100
+@@ -28,7 +28,7 @@
+ #include <stdlib.h>
+ #include <libbonobo.h>
+ #include <glib.h>
+-#include <glib/gmain.h>
++#include <glib.h>
+ #include <speak_lib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include "espeaksynthesisdriver.h"
+diff -urN gnome-speech-0.4.25/drivers/espeak/espeaksynthesisdriver.h gnome-speech-0.4.25-patched/drivers/espeak/espeaksynthesisdriver.h
+--- gnome-speech-0.4.25/drivers/espeak/espeaksynthesisdriver.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/espeak/espeaksynthesisdriver.h	2012-09-08 02:22:15.307229001 +1100
+@@ -29,7 +29,7 @@
+ #define __ESPEAK_SYNTHESIS_DRIVER_H_
+ 
+ #include <bonobo/bonobo-object.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <speak_lib.h>
+ #include "espeakspeaker.h"
+diff -urN gnome-speech-0.4.25/drivers/loquendo/loquendospeaker.c gnome-speech-0.4.25-patched/drivers/loquendo/loquendospeaker.c
+--- gnome-speech-0.4.25/drivers/loquendo/loquendospeaker.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/loquendo/loquendospeaker.c	2012-09-08 02:23:56.647229009 +1100
+@@ -27,8 +27,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <loqtts.h>
+ #include "loquendospeaker.h"
+diff -urN gnome-speech-0.4.25/drivers/loquendo/loquendospeaker.h gnome-speech-0.4.25-patched/drivers/loquendo/loquendospeaker.h
+--- gnome-speech-0.4.25/drivers/loquendo/loquendospeaker.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/loquendo/loquendospeaker.h	2012-09-08 02:22:15.292229002 +1100
+@@ -34,7 +34,7 @@
+ #endif /* __cplusplus */
+ 
+ #include <bonobo/bonobo-object.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <loqtts.h>
+ #include <gnome-speech/gnome-speech.h>
+ 
+diff -urN gnome-speech-0.4.25/drivers/loquendo/loquendosynthesisdriver.c gnome-speech-0.4.25-patched/drivers/loquendo/loquendosynthesisdriver.c
+--- gnome-speech-0.4.25/drivers/loquendo/loquendosynthesisdriver.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/loquendo/loquendosynthesisdriver.c	2012-09-08 02:22:15.287229002 +1100
+@@ -23,7 +23,7 @@
+  */
+ 
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
++#include <glib.h>
+ #include <loqtts.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include "loquendosynthesisdriver.h"
+diff -urN gnome-speech-0.4.25/drivers/loquendo/loquendosynthesisdriver.h gnome-speech-0.4.25-patched/drivers/loquendo/loquendosynthesisdriver.h
+--- gnome-speech-0.4.25/drivers/loquendo/loquendosynthesisdriver.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/loquendo/loquendosynthesisdriver.h	2012-09-08 02:22:15.293229002 +1100
+@@ -31,7 +31,7 @@
+ 
+ 
+ #include <bonobo/bonobo-object.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include "loquendospeaker.h"
+ 
+diff -urN gnome-speech-0.4.25/drivers/swift/swiftspeaker.c gnome-speech-0.4.25-patched/drivers/swift/swiftspeaker.c
+--- gnome-speech-0.4.25/drivers/swift/swiftspeaker.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/swift/swiftspeaker.c	2012-09-08 02:24:12.562229003 +1100
+@@ -28,8 +28,7 @@
+ #include <math.h>
+ #include <unistd.h>
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <swift.h>
+ #include "swiftspeaker.h"
+diff -urN gnome-speech-0.4.25/drivers/swift/swiftspeaker.h gnome-speech-0.4.25-patched/drivers/swift/swiftspeaker.h
+--- gnome-speech-0.4.25/drivers/swift/swiftspeaker.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/swift/swiftspeaker.h	2012-09-08 02:22:15.238229002 +1100
+@@ -28,7 +28,7 @@
+ #define __SWIFT_SPEAKER_H_
+ 
+ #include <bonobo/bonobo-object.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <swift.h>
+ 
+diff -urN gnome-speech-0.4.25/drivers/swift/swiftsynthesisdriver.c gnome-speech-0.4.25-patched/drivers/swift/swiftsynthesisdriver.c
+--- gnome-speech-0.4.25/drivers/swift/swiftsynthesisdriver.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/swift/swiftsynthesisdriver.c	2012-09-08 02:22:15.234229000 +1100
+@@ -28,7 +28,7 @@
+ #include <unistd.h>
+ #include <fcntl.h>
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <swift.h>
+ #include "swiftsynthesisdriver.h"
+diff -urN gnome-speech-0.4.25/drivers/theta/thetaspeaker.c gnome-speech-0.4.25-patched/drivers/theta/thetaspeaker.c
+--- gnome-speech-0.4.25/drivers/theta/thetaspeaker.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/theta/thetaspeaker.c	2012-09-08 02:26:12.931229053 +1100
+@@ -28,8 +28,7 @@
+ #include <math.h>
+ #include <unistd.h>
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <theta.h>
+ #include "thetaspeaker.h"
+diff -urN gnome-speech-0.4.25/drivers/theta/thetaspeaker.h gnome-speech-0.4.25-patched/drivers/theta/thetaspeaker.h
+--- gnome-speech-0.4.25/drivers/theta/thetaspeaker.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/theta/thetaspeaker.h	2012-09-08 02:22:15.271229000 +1100
+@@ -30,7 +30,7 @@
+ #define __THETA_SPEAKER_H_
+ 
+ #include <bonobo/bonobo-object.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <theta.h>
+ 
+diff -urN gnome-speech-0.4.25/drivers/theta/thetasynthesisdriver.c gnome-speech-0.4.25-patched/drivers/theta/thetasynthesisdriver.c
+--- gnome-speech-0.4.25/drivers/theta/thetasynthesisdriver.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/theta/thetasynthesisdriver.c	2012-09-08 02:22:15.274229000 +1100
+@@ -28,7 +28,7 @@
+ #include <unistd.h>
+ #include <fcntl.h>
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <theta.h>
+ #include "thetasynthesisdriver.h"
+diff -urN gnome-speech-0.4.25/drivers/viavoice/viavoicespeaker.c gnome-speech-0.4.25-patched/drivers/viavoice/viavoicespeaker.c
+--- gnome-speech-0.4.25/drivers/viavoice/viavoicespeaker.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/viavoice/viavoicespeaker.c	2012-09-08 02:22:15.226229002 +1100
+@@ -26,7 +26,7 @@
+ #include <unistd.h>
+ #include <string.h>
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include "viavoicesynthesisdriver.h"
+ #include "viavoicespeaker.h"
+diff -urN gnome-speech-0.4.25/drivers/viavoice/viavoicespeaker.h gnome-speech-0.4.25-patched/drivers/viavoice/viavoicespeaker.h
+--- gnome-speech-0.4.25/drivers/viavoice/viavoicespeaker.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/viavoice/viavoicespeaker.h	2012-09-08 02:22:15.230229002 +1100
+@@ -34,7 +34,7 @@
+ #endif /* __cplusplus */
+ 
+ #include <bonobo/bonobo-object.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <eci.h>
+ #include <gnome-speech/gnome-speech.h>
+ 
+diff -urN gnome-speech-0.4.25/drivers/viavoice/viavoicesynthesisdriver.c gnome-speech-0.4.25-patched/drivers/viavoice/viavoicesynthesisdriver.c
+--- gnome-speech-0.4.25/drivers/viavoice/viavoicesynthesisdriver.c	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/viavoice/viavoicesynthesisdriver.c	2012-09-08 02:22:15.232229001 +1100
+@@ -24,7 +24,7 @@
+  */
+ 
+ #include <libbonobo.h>
+-#include <glib/gmain.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <string.h>
+ #include "viavoicesynthesisdriver.h"
+diff -urN gnome-speech-0.4.25/drivers/viavoice/viavoicesynthesisdriver.h gnome-speech-0.4.25-patched/drivers/viavoice/viavoicesynthesisdriver.h
+--- gnome-speech-0.4.25/drivers/viavoice/viavoicesynthesisdriver.h	2008-12-10 23:36:00.000000000 +1000
++++ gnome-speech-0.4.25-patched/drivers/viavoice/viavoicesynthesisdriver.h	2012-09-08 02:22:15.228229002 +1100
+@@ -30,7 +30,7 @@
+ #define __VIAVOICE_SYNTHESIS_DRIVER_H_
+ 
+ #include <bonobo/bonobo-object.h>
+-#include <glib/gthread.h>
++#include <glib.h>
+ #include <gnome-speech/gnome-speech.h>
+ #include <eci.h>
+ #include "viavoicespeaker.h"
