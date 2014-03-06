@@ -19,7 +19,7 @@ Group:		Accessibility
 Url:		http://developer.gnome.org/projects/gap/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-speech/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch0:		gnome-speech-0.4.25-glib.patch
-BuildRequires:	libespeak-devel
+BuildRequires:	espeak-devel
 BuildRequires:	gnome-common
 BuildRequires:	pkgconfig(bonobo-activation-2.0)
 BuildRequires:	pkgconfig(popt)
