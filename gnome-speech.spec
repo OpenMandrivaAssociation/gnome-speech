@@ -80,7 +80,7 @@ This is a backend for %{name} based on espeak.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %configure2_5x \
