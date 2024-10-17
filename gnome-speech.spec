@@ -16,7 +16,7 @@ Version:	0.4.25
 Release:	10
 License:	LGPLv2+
 Group:		Accessibility
-Url:		http://developer.gnome.org/projects/gap/
+Url:		https://developer.gnome.org/projects/gap/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-speech/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch0:		gnome-speech-0.4.25-glib.patch
 BuildRequires:	espeak-devel
