@@ -13,7 +13,7 @@
 Summary:	Simple general API for producing text-to-speech output
 Name:		gnome-speech
 Version:	0.4.25
-Release:	10
+Release:	11
 License:	LGPLv2+
 Group:		Accessibility
 Url:		https://developer.gnome.org/projects/gap/
